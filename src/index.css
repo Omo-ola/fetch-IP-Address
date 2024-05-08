@@ -4,7 +4,7 @@
 
 
 .backgroundImageDiv {
-  background-image: url("public/images/pattern-bg-desktop.png");
+  background-image: url("/images/pattern-bg-desktop.png");
   background-size: cover;
   background-position: center;
   /* width: 100%;
@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 768px) {
   .backgroundImageDiv {
-    background-image: url("public/images/pattern-bg-mobile.png");
+    background-image: url("/images/pattern-bg-mobile.png");
   }
 }
 

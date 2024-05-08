@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 import { fetchData } from "./util/helper";
 import { IPInfo } from "./types/types";
@@ -64,6 +65,14 @@ function App() {
         setError(error.message);
       });
   }
+
+  const customIcon = L.icon({
+    iconUrl: "/images/icon-location.svg", // Replace with your marker icon image path
+    iconSize: [35, 45],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    tooltipAnchor: [16, -28],
+  });
   return (
     <>
       {error ? (
@@ -204,7 +213,10 @@ function App() {
             >
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {location.lat && location.lng && (
-                <Marker position={[location.lat, location.lng]} />
+                <Marker
+                  position={[location.lat, location.lng]}
+                  icon={customIcon}
+                />
               )}
             </MapContainer>
           </main>
